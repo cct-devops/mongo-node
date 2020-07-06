@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        env:
+          - name: MONGO_URL
+            value: "mongodb://admin:secret@mongodb:27017"
+        image: dagonzadub/mongo-node:latest
+        ports:
+        - containerPort: 3000
