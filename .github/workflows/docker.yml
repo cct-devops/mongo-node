@@ -17,4 +17,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: dagonzadub/mongo-node
-        tags: ${{GITHUB_SHA::8}}
+        tags: ${GITHUB_SHA::8}
